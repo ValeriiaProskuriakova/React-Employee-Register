@@ -10,3 +10,5 @@ Consists of 7 components: <br />
 5) Employees-list component which returns the list of employees based on the EmployeesListItem component passed in. It receives the props from the main App component, such as the data array, onProps function and deleteEmployee function. onProps function accepts data-toggle attribute from EmployeesListItem component, and changes the increase and like values of the data in the main App component depending on the attribute value. deleteEmployee function deletes the object in the data array in the main App component. It is called by the trash button in the EmployeesListItem component. <br />
 6) Employees-list-item component which returns one employee data and is passed on to the Employees-list component.
 7) Search panel component which returns search field, changes the 'val' state both locally and in the main App component once the input value is changed, by calling on the searchState function. SearchEmployee function in the main App component is called on each time the App renders, and returns the data array, changed or unchanged, depending on the val argument passed. 
+
+p.s. SCSS file is used as an example of SCSS usage in React
