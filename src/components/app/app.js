@@ -12,10 +12,10 @@ class App extends Component {
     super(props);
     this.state = {
       data:[
-        {name:'John C', salary:800, increase:false, like:false, id:1}, //increase - ето состояние
-        {name:'Mike K', salary:1000, increase:true, like:false, id:2},
-        {name:'Mick D', salary:2500, increase:false, like:true, id:3},
-        {name:'Nick K', salary:2500, increase:false, like:true, id:4}
+        {name:'John C', salary:800, increase:false, raise:false, id:1}, //increase - ето состояние
+        {name:'Mike K', salary:1000, increase:true, raise:false, id:2},
+        {name:'Mick D', salary:2500, increase:false, raise:true, id:3},
+        {name:'Nick K', salary:2500, increase:false, raise:true, id:4}
       ],
       val: '',
       filter: 'raise'
@@ -75,7 +75,7 @@ class App extends Component {
   // Ф-ция добавления, в кот передаем параметри с Employees-add-form и которая добавляет сотрудніка
   addEmployee = (name,salary) => {
     this.setState(({data}) => {
-      const newItem = {name:name, salary:salary, increase:false, like:false, id:this.maxId++};
+      const newItem = {name:name, salary:salary, increase:false, raise:false, id:this.maxId++};
       const newArr = [...data, newItem]
       console.log({data:newArr})
       return {data:newArr}
@@ -109,7 +109,8 @@ class App extends Component {
   // Ф-ция фильтра
   searchFilter = (filter, data) => {
     switch(filter) {
-      case 'raise': return data.filter(item => item.increase);
+      case 'raise': return data.filter(item => item.raise);
+      case 'bonus': return data.filter(item => item.increase);
       case 'morethan1000': return data.filter(item => item.salary > 1000);
       default: return data;
     }
@@ -122,13 +123,17 @@ class App extends Component {
     const {val, data, filter} = this.state;
     const result = this.searchFilter(filter, this.searchEmployee(val,data)) // фильтр возвращает фильтрованую дату уже на базе дати после поиска
     const employees = this.state.data.length;
-    const increased = this.state.data.filter(item =>item.like).length;
+    const increased = this.state.data.filter(item =>item.increase).length;
+    const raised = this.state.data.filter(item=>item.raise).length;
+    const morethan1000 = this.state.data.filter(item=> item.salary > 1000).length;
 
     return (
       <div className="app">
           <AppInfo
               employees = {employees}
-              increased = {increased}/>
+              increased = {increased}
+              raised = {raised}
+              morethan1000 = {morethan1000}/>
 
           <div className="search-panel">
               <SearchPanel

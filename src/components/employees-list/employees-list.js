@@ -12,7 +12,7 @@ const EmployeesList = ({data, onProps, deleteEmployee}) => {
           {...itemProps}
           /*
           onIncrease={() => onIncrease(id)}
-          onLike = {() => onLike(id)} */
+          onLike = {() => on (id)} */
           onProps = {(e) => onProps(id, e.currentTarget.getAttribute('data-toggle'))}
           deleteEmployee = {() => deleteEmployee(id)}/>
     )

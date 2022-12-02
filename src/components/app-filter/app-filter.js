@@ -5,6 +5,7 @@ const AppFilter = (props) => {
   const arrBtns =  [
     {name:'all', label: 'All employees'},
     {name:'raise', label: 'Will get a raise'},
+    {name:'bonus', label: 'Will receive a bonus'},
     {name:'morethan1000', label: 'Salary more than 1000$'},
   ]
   const buttons = arrBtns.map(({name, label}) => {
