@@ -50,8 +50,9 @@ const EmployeesListItem = (props) => {
 
               <button type="button"
                       className="btn-trash btn-sm "
-                      onClick = {deleteEmployee}>
-                  <i className="fas fa-trash"></i>
+                      onClick = {deleteEmployee}
+                      aria-label="trash">
+                <i className="fas fa-trash"></i>
               </button>
               <i className="fas fa-star"></i>
           </div>

@@ -18,7 +18,7 @@ class App extends Component {
         {name:'Nick K', salary:2500, increase:false, raise:true, id:4}
       ],
       val: '',
-      filter: 'raise'
+      filter: 'all'
     };
     this.maxId = 5;
 
